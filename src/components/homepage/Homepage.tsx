@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/react"
-import { Fragment, useState } from "react"
+import { useState } from "react"
 import { Textarea } from '@chakra-ui/react'
 import ResultViewPort from "./ResultViewPort"
 import { jsonValidator } from "./homepageUtils"
@@ -36,7 +36,8 @@ const Homepage = () => {
         <Button
           isDisabled={!isJsonValid}
           colorScheme={isJSONTreeViewOpen ? 'orange' : 'blue'}
-          onClick={() => { setIsJSONTreeViewOpen(!isJSONTreeViewOpen) }}>Show JSON tree
+          onClick={() => setIsJSONTreeViewOpen(!isJSONTreeViewOpen)}>
+          Show JSON tree
         </Button>
       </div>
       {currentJSON && isJsonValid && <ResultViewPort currentJSON={currentJSON} />}

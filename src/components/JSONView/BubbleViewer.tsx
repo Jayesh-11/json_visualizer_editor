@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { select, hierarchy, tree, linkHorizontal, json, linkVertical, linkRadial } from 'd3'
+import { select, hierarchy, tree, linkHorizontal } from 'd3'
 import { ToJsonTree } from './BubbleTreeUtils';
 
 const BubbleViewer = ({ data }: { data: any }) => {
@@ -13,7 +13,7 @@ const BubbleViewer = ({ data }: { data: any }) => {
     svg.attr('width', width).attr('height', height)
 
 
-    const root = hierarchy(ToJsonTree(data, 'glossary'))
+    const root = hierarchy(ToJsonTree(data, 'parent'))
     const paths = treeLayout(root).links();
     const pathGenerator = linkHorizontal().x(d => d.y).y(d => d.x)
     console.log(root, paths)
